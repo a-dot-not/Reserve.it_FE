@@ -10,6 +10,15 @@ declare global {
         profilePictureUrl: string;
       } | null;
     }
+    interface Platform {
+      env: {
+        COUNTER: DurableObjectNamespace;
+      };
+      context: {
+        waitUntil(promise: Promise<any>): void;
+      };
+      caches: CacheStorage & { default: Cache };
+    }
     //interface PageData {}
     //interface Platform {}
   }
